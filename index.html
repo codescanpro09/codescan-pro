@@ -604,20 +604,34 @@ if __name__ == "__main__":
                             model: 'gpt-4o-mini',
                             messages: [{
                                 role: 'user',
-                                content: `You are a code analysis expert. Analyze this ${lang} code and provide:
+                                content: `You are an expert code analyzer and debugger. Analyze the following ${lang} code carefully.
 
-1. **Issues Found**: List all bugs, errors, and potential problems
-2. **Fixed Code**: Provide the corrected version
-3. **Explanation**: Explain what was wrong and how you fixed it
+**Your task:**
+1. Identify ALL bugs, errors, syntax issues, and potential problems
+2. Provide the COMPLETE corrected code (not just snippets)
+3. Explain what was wrong and how you fixed it
 
-Code to analyze:
+**Code to analyze:**
 \`\`\`${lang}
 ${code}
 \`\`\`
 
-Format your response in clear markdown with headers.`
+**Response format (use exactly these headers):**
+
+## Issues Found
+- List each issue clearly
+
+## Fixed Code
+\`\`\`${lang}
+[Provide the COMPLETE working code here - include ALL lines, not just the fixed parts]
+\`\`\`
+
+## Explanation
+- Explain each fix in detail
+
+IMPORTANT: The "Fixed Code" section must contain the ENTIRE working program, not just the corrected lines.`
                             }],
-                            max_tokens: 2000,
+                            max_tokens: 3000,
                             temperature: 0.7
                         })
                     });
