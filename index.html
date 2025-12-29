@@ -15,7 +15,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
         const GOOGLE_CLIENT_ID = '116443291385-2jpbktc4n9mhbkesdfcjpei4uhri5bcl.apps.googleusercontent.com';
-        const OPENAI_API_KEY = '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';
+        const OPENAI_API_KEY = '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';
 
         tailwind.config = {
             darkMode: 'class',
@@ -193,17 +193,17 @@
 
     <!-- SIDEBAR NAVIGATION (Expanded Dashboard Style) -->
     <div id="app-container"
-        class="hidden md:flex w-[95%] h-[92%] glass-panel rounded-[2rem] overflow-hidden shadow-2xl relative z-10 flex-row">
+        class="flex flex-col md:flex-row w-full h-full md:w-[95%] md:h-[92%] md:rounded-[2rem] glass-panel overflow-hidden shadow-2xl relative z-10">
 
         <nav
-            class="w-20 md:w-72 bg-white/60 border-r border-glass-border flex flex-col py-8 px-4 gap-6 shrink-0 relative backdrop-blur-md">
+            class="w-full md:w-72 h-auto md:h-full bg-white/60 md:border-r border-t md:border-t-0 border-glass-border flex flex-row md:flex-col py-2 md:py-8 px-4 gap-1 md:gap-6 shrink-0 relative backdrop-blur-md order-last md:order-first z-40 justify-around md:justify-start">
             <!-- Brand -->
-            <div class="flex items-center gap-4 px-2 mb-4">
+            <div class="hidden md:flex items-center gap-4 px-2 mb-4">
                 <div
                     class="w-10 h-10 bg-gradient-to-br from-glass-primary to-blue-600 rounded-xl flex items-center justify-center text-white text-lg shadow-lg shadow-blue-500/20">
                     <i class="fa-solid fa-layer-group"></i>
                 </div>
-                <div class="hidden md:block">
+                <div>
                     <h1 class="text-xl font-bold text-glass-text tracking-tight">Codescan<span
                             class="text-glass-primary">pro</span></h1>
                     <p class="text-[10px] text-glass-muted font-mono uppercase tracking-widest">v2.0 dashboard</p>
@@ -213,33 +213,34 @@
             <div class="h-px bg-gradient-to-r from-transparent via-glass-border to-transparent w-full my-1"></div>
 
             <!-- Nav Items -->
-            <div class="flex flex-col gap-3 w-full">
-                <p class="text-[10px] font-bold text-glass-muted uppercase tracking-wider px-4 mb-1">Menu</p>
+            <div class="flex flex-row md:flex-col gap-1 md:gap-3 w-full justify-around md:justify-start">
+                <p class="hidden md:block text-[10px] font-bold text-glass-muted uppercase tracking-wider px-4 mb-1">
+                    Menu</p>
 
                 <button onclick="app.setTab('editor')" id="nav-editor"
-                    class="w-full h-12 rounded-xl flex items-center gap-4 px-4 text-glass-text bg-white border border-glass-border shadow-sm transition-all hover:bg-glass-primary hover:text-white hover:shadow-md hover:translate-x-1 group text-sm font-medium">
-                    <i class="fa-solid fa-code text-lg w-6 text-center group-hover:scale-110 transition-transform"></i>
-                    <span class="hidden md:inline">Code Editor</span>
+                    class="flex-1 md:flex-none w-auto md:w-full h-10 md:h-12 rounded-xl flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-4 px-2 md:px-4 text-glass-text bg-white border border-glass-border shadow-sm transition-all hover:bg-glass-primary hover:text-white hover:shadow-md md:hover:translate-x-1 group text-[10px] md:text-sm font-medium">
+                    <i
+                        class="fa-solid fa-code text-base md:text-lg w-6 text-center md:group-hover:scale-110 transition-transform"></i>
+                    <span>Editor</span>
                 </button>
 
                 <button onclick="app.setTab('results')" id="nav-results"
-                    class="w-full h-12 rounded-xl flex items-center gap-4 px-4 text-glass-muted hover:text-glass-primary transition-all hover:bg-glass-bg hover:translate-x-1 group text-sm font-medium">
-                    <i class="fa-solid fa-flask text-lg w-6 text-center"></i>
-                    <span class="hidden md:inline">Analysis Results</span>
+                    class="flex-1 md:flex-none w-auto md:w-full h-10 md:h-12 rounded-xl flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-4 px-2 md:px-4 text-glass-muted hover:text-glass-primary transition-all hover:bg-glass-bg md:hover:translate-x-1 group text-[10px] md:text-sm font-medium">
+                    <i class="fa-solid fa-flask text-base md:text-lg w-6 text-center"></i>
+                    <span>Results</span>
                 </button>
 
                 <!-- Theme Toggle -->
                 <button onclick="app.toggleTheme()" id="theme-toggle"
-                    class="w-full h-12 rounded-xl flex items-center gap-4 px-4 text-glass-muted hover:text-glass-primary transition-all hover:bg-glass-bg hover:translate-x-1 group text-sm font-medium mt-2">
-                    <i class="fa-solid fa-moon text-lg w-6 text-center group-hover:rotate-12 transition-transform"></i>
-                    <span class="hidden md:inline">Toggle Theme</span>
+                    class="flex-1 md:flex-none w-auto md:w-full h-10 md:h-12 rounded-xl flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-4 px-2 md:px-4 text-glass-muted hover:text-glass-primary transition-all hover:bg-glass-bg md:hover:translate-x-1 group text-[10px] md:text-sm font-medium md:mt-2">
+                    <i
+                        class="fa-solid fa-moon text-base md:text-lg w-6 text-center group-hover:rotate-12 transition-transform"></i>
+                    <span class="hidden md:inline">Theme</span>
                 </button>
             </div>
 
-            <div class="flex-grow"></div>
-
             <!-- User Profile (Popover Menu) -->
-            <div class="relative group">
+            <div class="hidden md:block relative group mt-auto">
                 <button onclick="app.toggleProfileMenu()" id="profile-btn"
                     class="w-full bg-white/50 border border-glass-border rounded-2xl p-4 flex items-center gap-3 cursor-pointer hover:bg-white transition-all shadow-sm text-left">
                     <div id="user-avatar"
@@ -273,13 +274,15 @@
             <!-- EDITOR TAB -->
             <div id="tab-editor" class="flex flex-col h-full w-full absolute inset-0 bg-glass-bg">
                 <!-- Top Bar -->
+                <!-- Top Bar -->
                 <header
-                    class="sticky top-0 z-50 h-16 border-b border-glass-border flex items-center px-6 justify-between bg-white/60 backdrop-blur-md shadow-sm transition-all duration-300">
-                    <div class="flex items-center gap-4">
-                        <span id="filename-display" class="text-sm font-mono text-glass-text font-bold"><i
+                    class="sticky top-0 z-30 h-14 md:h-16 border-b border-glass-border flex items-center px-4 md:px-6 justify-between bg-white/60 backdrop-blur-md shadow-sm transition-all duration-300">
+                    <div class="flex items-center gap-2 md:gap-4 overflow-hidden">
+                        <span id="filename-display"
+                            class="text-xs md:text-sm font-mono text-glass-text font-bold truncate max-w-[120px] md:max-w-none"><i
                                 class="fa-solid fa-file-code mr-2 text-glass-primary"></i>main.py</span>
                         <span
-                            class="text-[10px] bg-glass-border px-2 py-0.5 rounded text-glass-muted uppercase tracking-wider font-semibold">Read-Write</span>
+                            class="text-[10px] bg-glass-border px-2 py-0.5 rounded text-glass-muted uppercase tracking-wider font-semibold hidden sm:inline-block">Read-Write</span>
                     </div>
 
                     <div class="flex items-center gap-3">
@@ -312,15 +315,15 @@
 
                     <!-- Code Area -->
                     <div
-                        class="flex-grow relative flex bg-white code-shadow mx-6 my-6 rounded-2xl overflow-hidden border border-glass-border">
+                        class="flex-grow relative flex bg-white code-shadow mx-2 my-2 md:mx-6 md:my-6 rounded-xl md:rounded-2xl overflow-hidden border border-glass-border">
                         <!-- Line Numbers -->
                         <div
-                            class="w-14 bg-glass-bg border-r border-glass-border text-right text-xs font-mono text-glass-muted py-6 select-none z-10 leading-7 pr-4">
+                            class="w-10 md:w-14 bg-glass-bg border-r border-glass-border text-right text-[10px] md:text-xs font-mono text-glass-muted py-4 md:py-6 select-none z-10 leading-6 md:leading-7 pr-2 md:pr-4">
                             1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15
                         </div>
                         <!-- Textarea -->
                         <textarea id="code-input"
-                            class="flex-grow bg-transparent text-glass-text font-mono text-sm p-6 border-none resize-none focus:ring-0 focus:outline-none leading-7 relative z-10 selection:bg-glass-primary/10 outline-none"
+                            class="flex-grow bg-transparent text-glass-text font-mono text-xs md:text-sm p-4 md:p-6 border-none resize-none focus:ring-0 focus:outline-none leading-6 md:leading-7 relative z-10 selection:bg-glass-primary/10 outline-none"
                             spellcheck="false" placeholder="// Start coding..."># Codescanpro AI Editor
 def main():
     print("Welcome to Codescanpro")
@@ -336,9 +339,9 @@ if __name__ == "__main__":
 
                 </div> <!-- End Code Scroll Container -->
                 <div
-                    class="h-20 border-t border-glass-border bg-white flex items-center px-6 gap-4 relative z-20 shadow-[0_-5px_20px_rgba(0,0,0,0.02)]">
+                    class="h-16 md:h-20 border-t border-glass-border bg-white flex items-center px-4 md:px-6 gap-4 relative z-20 shadow-[0_-5px_20px_rgba(0,0,0,0.02)] shrink-0">
                     <button onclick="app.fixCode()"
-                        class="flex-grow md:flex-grow-0 bg-white text-glass-primary px-8 py-3 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.05)] font-bold text-sm flex items-center justify-center gap-3 transition-all transform active:scale-95 hover:shadow-lg border border-glass-border hover:-translate-y-1">
+                        class="flex-grow md:flex-grow-0 bg-white text-glass-primary px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.05)] font-bold text-xs md:text-sm flex items-center justify-center gap-2 md:gap-3 transition-all transform active:scale-95 hover:shadow-lg border border-glass-border hover:-translate-y-1">
                         <i class="fa-solid fa-wand-magic-sparkles text-glass-accent"></i> AI FIX & ANALYZE
                     </button>
                     <div class="hidden md:flex text-xs text-glass-muted ml-auto font-mono gap-6">
@@ -420,12 +423,8 @@ if __name__ == "__main__":
     </div> <!-- End App Container -->
 
     <!-- Mobile Fallback -->
-    <div id="mobile-fallback"
-        class="md:hidden w-full h-full flex flex-col bg-glass-bg items-center justify-center p-8 text-center">
-        <i class="fa-solid fa-mobile-screen text-4xl text-glass-primary mb-4"></i>
-        <h2 class="text-xl font-bold text-glass-text">Desktop View Required</h2>
-        <p class="text-sm text-glass-muted mt-2">Please use a larger screen for the best dashboard experience.</p>
-    </div>
+    <!-- Mobile Fallback (REMOVED) -->
+    <!-- <div id="mobile-fallback" ... ></div> -->
 
 
     <script>
